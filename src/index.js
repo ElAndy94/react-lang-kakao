@@ -1,18 +1,21 @@
-import React, {Suspense} from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import './il18next';
+import "./il18next";
+import KakaoAuthProvider from "./context/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={(<div>Loading...</div>)}>
-    <App />
-    </Suspense>
+    <KakaoAuthProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <App />
+      </Suspense>
+    </KakaoAuthProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
